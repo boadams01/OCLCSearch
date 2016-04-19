@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 3,
+    center: {lat: 50, lng: -50},
+    mapTypeControl: false
+        });
+      
+      
+      
+      var cities = {
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [-87.650, 41.850]},
+    properties: {name: 'Chicago'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [-149.900, 61.218]},
+    properties: {name: 'Anchorage', url: 'http://www.yahoo.com'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [-99.127, 19.427]},
+    properties: {name: 'Mexico City'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [-0.126, 51.500]},
+    properties: {name: 'London'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [28.045, -26.201]},
+    properties: {name: 'Johannesburg'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [15.322, -4.325]},
+    properties: {name: 'Kinshasa'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [151.207, -33.867]},
+    properties: {name: 'Sydney'}
+  }, {
+    type: 'Feature',
+    geometry: {type: 'Point', coordinates: [0, 0]},
+    properties: {name: '0°N 0°E'}
+  }]
+  };
+  map.data.setStyle(function(feature) {
+    return {
+      title: feature.getProperty('name'),
+      optimized: false
+    };
+  });
+  
+  map.data.addGeoJson(cities);
+  }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+  </body>
+</html>
