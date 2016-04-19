@@ -27,8 +27,7 @@ $numrecords=isset($_GET["numrecords"])?$_GET["numrecords"]:0;
         
         $numinserted=0;
         $key="&wskey=trRhzr2YMBzgeLuRBHhodKrOmDvdwK6cAm0FFHdio54OY88cQ8gPbymtRE0SMAoMtD8dYZZ4G2IhRqf4";    //mykey
-        //$key="&wskey=a1vkxyTxLTHhknwO9VXF9BNiI8bZ6R9BzzHMTR0Qn4XZ67BLSQuTEmGyIa4wGnqE07TexyzGjlsPQYxd";//emory key
-
+        
 for($startnum=1; $startnum<$numrecords; $startnum+=100)
 {       
 $startparam="&startRecord=" . $startnum;
